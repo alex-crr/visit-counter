@@ -1,4 +1,9 @@
 student04.wt.thomasjuldo.com {
+	# music app (what-my-music-looks-like), on the shared "proxy" network
+	redir /music /music/
+	handle_path /music/* {
+		reverse_proxy music:8081
+	}
 	handle_path /api/* {
 		reverse_proxy api:8082
 	}

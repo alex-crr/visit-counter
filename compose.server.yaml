@@ -17,6 +17,12 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy-data:/data
       - caddy-config:/config
+    networks:
+      - default
+      - proxy # shared with the music app, see the Caddyfile
+networks:
+  proxy:
+    name: proxy
 volumes:
   caddy-data:
   caddy-config:
